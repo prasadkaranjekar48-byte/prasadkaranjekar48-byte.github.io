@@ -23,7 +23,7 @@ function sendMessage() {
         reply = "My name is Prasad Bot.";
     }
     else if (msg.toLowerCase().includes("bye")) {
-        reply = "Goodbye! Have a nice day.";
+        reply = "! Have a nice day.";
     }
 
     // Show bot reply
