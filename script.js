@@ -1,47 +1,69 @@
 function sendMessage() {
 
     let input = document.getElementById("user-input");
+
     let msg = input.value.trim();
 
-    if (msg === "") return;
+    if(msg === "") return;
 
     let chatBox = document.getElementById("chat-box");
 
-    // Show user message
-    chatBox.innerHTML += "<p><b>You:</b> " + msg + "</p>";
+    // User Message
 
-    // Bot reply
-    let reply = "I am Prasad Bot.";
+    let userDiv = document.createElement("div");
 
-    if (msg.toLowerCase().includes("hello") || msg.toLowerCase().includes("hi")) {
-        reply = "Hi there!";
-    }
-    else if (msg.toLowerCase().includes("how are you")) {
-        reply = "I am fine. Thanks for asking!";
-    }
-    else if (msg.toLowerCase().includes("your name")) {
-        reply = "My name is Prasad Bot.";
-    }
-    else if (msg.toLowerCase().includes("bye")) {
-        reply = "! Have a nice day.";
+    userDiv.className = "user-message";
+
+    userDiv.innerText = msg;
+
+    chatBox.appendChild(userDiv);
+
+    // Bot Reply
+
+    let reply = "Sorry, I don't understand.";
+
+    if(msg.toLowerCase().includes("hello") ||
+       msg.toLowerCase().includes("hi"))
+    {
+        reply = "Hello 👋";
     }
 
-    // Show bot reply
-    chatBox.innerHTML += "<p><b>Bot:</b> " + reply + "</p>";
+    else if(msg.toLowerCase().includes("how are you"))
+    {
+        reply = "I am fine 😊";
+    }
 
-    // Clear input
+    else if(msg.toLowerCase().includes("your name"))
+    {
+        reply = "My name is Prasad Bot 🤖";
+    }
+
+    else if(msg.toLowerCase().includes("bye"))
+    {
+        reply = "Goodbye 👋";
+    }
+
+    let botDiv = document.createElement("div");
+
+    botDiv.className = "bot-message";
+
+    botDiv.innerText = reply;
+
+    chatBox.appendChild(botDiv);
+
     input.value = "";
 
-    // Auto scroll
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Press Enter to Send
-document.addEventListener("DOMContentLoaded", function () {
+// ENTER KEY SUPPORT
 
-    document.getElementById("user-input").addEventListener("keydown", function (event) {
+document.addEventListener("DOMContentLoaded", function(){
 
-        if (event.key === "Enter") {
+    document.getElementById("user-input")
+    .addEventListener("keydown", function(event){
+
+        if(event.key === "Enter"){
             sendMessage();
         }
 
