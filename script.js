@@ -42,6 +42,10 @@ function sendMessage() {
     {
         reply = "Goodbye 👋";
     }
+    else if(msg.toLowerCase().includes("prasad"))
+    {
+        reply = "prasad is an nice man";
+    }
 
     let botDiv = document.createElement("div");
 
